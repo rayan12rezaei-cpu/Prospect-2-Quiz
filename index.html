@@ -1,16 +1,129 @@
 <!DOCTYPE html>
 <html lang="fa">
-    <head>
-        <title>P2Q - Prospect 2 Quiz</title>
-        <link rel="icon" src="assets/favicon.png">
-        <style>
-            body { 
-                background-color: #212121;
-            }
-        </style>
-    </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>دو معادله</title>
 
-    <body>
+    <style>
+
+        * {
+            font-family: 'Segoe UI';
+        }
+
+        body {
+            box-sizing: border-box;
+            background: linear-gradient(to right, #cff9ff 0%, #23e2ff 100%);
+            margin: 0;
+            justify-content: center;
+            display: flex;
+            padding-top: 10px;
+        }
+
+        .container {
+            background-color: #212121;
+            border-radius: 10px;
+            height: auto;
+            width: 90vh;
+            padding: 1%;
+            border: 3px solid #0008ff;
+            box-shadow: 0 10px 25px rgba(35, 35, 35, 0.514);
+        }
+        .container:hover {
+            transform: translateY(-2px);
+        }
+
+        .num-input {
+            background-color: aliceblue;
+            border-radius: 10px;
+            border: 1px solid #0008ff;
+            height: 5vh;
+            width: 99%;
+            padding: 0px;
+            font-size: 100%;
+            font-weight: bolder;
+        }
+
+        .btn1 {
+            background-color: rgb(188, 182, 255);
+            color: black;
+            border-radius: 10px;
+            border: 1px solid #00284d;
+            height: 5vh;
+            width: 99%;
+            margin-top: 1%;
+            font-size: 100%;
+            font-weight: bolder;
+        }
+        .btn1:hover {
+            background-color: #0008ff;
+            transform: translateY(-2px);
+        }
+        .btn1:active {
+            background-color: #14006d;
+            color: white
+        }
+
+        .btn2 {
+            background-color: rgb(179, 255, 108);
+            color: black;
+            border-radius: 10px;
+            border: 1px solid #195000;
+            height: 5vh;
+            width: 99%;
+            margin-top: 1%;
+            font-size: 100%;
+            font-weight: bolder;
+        }
+        .btn2:hover {
+            background-color: #00e727;
+            transform: translateY(-2px);
+        }
+        .btn2:active {
+            background-color: #008d18;
+        }
+
+        label {
+            text-align: center;
+            color: white;
+        }
+
+        p { color: white }
+
+    </style>
+
+<body>
+    
+    <div class="container">
+        <input id="num-input" class="num-input" type="number" placeholder="شماره جمله را وارد کنید">
+        <button id="btn1" class="btn1">محاسبه برای الگوی اول</button>
+        <label id="result1" class="result1"></label>
+
+        <button id="btn2" class="btn2">محاسبه برای الگوی دوم</button>
+        <label id="result2" class="result2"></label>
+    </div>
+
+    <script>
+        async function equation_one() {
+            const n = Number(document.getElementById("num-input").value);
+            console.log(n)
+            const result10 = (n * n) + n;
+            console.log(result10)
+            const result11 = result10 * ((2*n)+1)
+            console.log(result11)
+            const result12 = result11 / 6
+            console.log(result12)
+            document.getElementById("result1").innerText = result12;
+        }
+        async function equation_two() {
+            const n = document.getElementById("num-input").value;
+            const result2 = `${Math.pow(2, n)-1} / ${Math.pow(2, n)}`;
+            document.getElementById("result2").innerText = result2;
+        }
         
-    </body>
+        document.getElementById("btn1").addEventListener("click", equation_one);
+        document.getElementById("btn2").addEventListener("click", equation_two);
+    </script>
+
+</body>
+
 </html>
